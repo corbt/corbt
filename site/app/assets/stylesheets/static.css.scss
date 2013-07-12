@@ -1,0 +1,33 @@
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	line-height: 130%;
+}
+
+a {
+}
+
+#narrow {
+	margin: 200px auto 0;
+	max-width: 500px;
+	line-height: 200%
+}
+
+#header { @include clearfix; }
+
+img.profile {
+	width: 120px;
+	float: left;
+}
+
+#whoami {
+	margin: 80px 0 0 16px;
+	float: left;
+	font-weight: 400;
+	font-size: 35px;
+}
+
+#about {
+	margin-top: 20px;
+	font-size: 20px;
+}
