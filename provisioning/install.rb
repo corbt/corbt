@@ -4,7 +4,7 @@ Dir["./packages/*.rb"].each {|file| require file }
 
 policy :stack, :roles => :app do 
   requires :git
-  requires :vim
+  requires :utils
   requires :ruby
 end
 
@@ -13,6 +13,7 @@ deployment do
     role :app, Site::CONFIG[:server]
     set :user, "deploy"
     logger.level = Capistrano::Logger::TRACE
-    default_run_options[:shell] = '/bin/bash'
+    # default_run_options[:shell] = false#'/bin/bash --login'
+    # default_run_options[:pty] = true
   end
 end

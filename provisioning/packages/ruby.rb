@@ -1,90 +1,115 @@
 require '../conf'
+version = Site::CONFIG[:ruby_version]
 
-package :install_rbenv do
-  requires :git
-  description 'Ruby RBEnv'
+package :ruby do 
+  requires :ruby_essentials, :tmp
 
-  runner  "git clone git://github.com/sstephenson/rbenv.git ~/.rbenv"
-  runner "git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build"
+  file "/etc/ruby-install.sh", contents: render("ruby_install.sh"), sudo: true
+  runner "chmod u+x /etc/ruby-install.sh", sudo: true
+  runner "/etc/ruby-install.sh", sudo: true
 
-  push_text 'export PATH="$HOME/.rbenv/bin:$PATH"', "~/.bash_profile"
-  push_text 'eval "$(rbenv init -)"', "~/.bash_profile"
-
-  verify do
-    has_executable "~/.rbenv/bin/rbenv"
-  end
+  verify { has_executable_with_version "ruby", version.delete("-"), "-v" }
 end
 
-package :install_ruby do
-  requires :install_rbenv
-
-  version = Site::CONFIG[:ruby_version]
-
-  runner "rbenv install #{version}", sudo: true
-  runner "rbenv rehash", sudo: true
-
-  verify do
-    has_executable "~/.rbenv/shims/ruby"
-  end
+package :ruby_essentials do 
+  apt "build-essential zlib1g-dev libssl-dev libreadline6-dev libyaml-dev checkinstall libgdbm-dev", sudo: true
 end
 
-package :rbenv_bundler do
-  requires :use_rbenv
+# gave up on rvm and rbenv, mostly sprinkle's fault for using a weird shell
 
-  runner "gem install bundler", sudo: true
-  runner "rbenv rehash", sudo: true
+# package :install_rbenv do
+#   requires :git
+#   description 'Ruby RBEnv'
 
-  verify do 
-    @commands << "gem list | grep bundler"
-  end
-end
+#   runner  "git clone git://github.com/sstephenson/rbenv.git ~/.rbenv"
+#   runner "git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build"
 
-package :use_rbenv do
-  requires :install_ruby
+#   push_text 'export PATH="$HOME/.rbenv/bin:$PATH"', "~/.bash_profile"
+#   push_text 'eval "$(rbenv init -)"', "~/.bash_profile"
 
-  version = Site::CONFIG[:ruby_version]
+#   verify do
+#     has_executable "~/.rbenv/bin/rbenv"
+#   end
+# end
 
-  runner "rbenv rehash", sudo: true
-  runner "rbenv global #{version}", sudo: true
-  runner "rbenv rehash", sudo: true
-end
+# package :install_ruby do
+#   requires :install_rbenv, :ruby_essentials
 
-package :install_rubygems do
-  requires :use_rbenv
+#   version = Site::CONFIG[:ruby_version]
 
-  description 'Ruby Gems Package Management System'
-  version '1.8.25'
+#   runner "rbenv install #{version}"
+#   runner "rbenv rehash"
 
-  source "http://production.cf.rubygems.org/rubygems/rubygems-#{version}.tgz" do
-    custom_install "ruby setup.rb", sudo: true
+#   verify do
+#     has_executable "~/.rbenv/shims/ruby"
+#   end
+# end
+
+# package :rbenv_bundler do
+#   requires :use_rbenv
+
+#   runner "gem install bundler"
+#   runner "rbenv rehash"
+
+#   verify do 
+#     @commands << "gem list | grep bundler"
+#   end
+# end
+
+# package :use_rbenv do
+#   requires :install_ruby, :rbenv_sudo
+
+#   version = Site::CONFIG[:ruby_version]
+
+#   runner "rbenv rehash"
+#   runner "sudo rbenv global #{version}", pty: true
+#   runner "rbenv rehash"
+# end
+
+# package :install_rubygems do
+#   requires :use_rbenv
+
+#   description 'Ruby Gems Package Management System'
+#   version '1.8.25'
+
+#   source "http://production.cf.rubygems.org/rubygems/rubygems-#{version}.tgz" do
+#     custom_install "ruby setup.rb"
     
-    # post :install, "ln -s /usr/bin/gem1.8 /usr/bin/gem"
-    post :install, "gem update --system", sudo: true
-  end
+#     # post :install, "ln -s /usr/bin/gem1.8 /usr/bin/gem"
+#     post :install, "gem update --system"
+#   end
 
-  verify do
-    has_executable "~/.rbenv/shims/gem"
-  end
-end
+#   verify do
+#     has_executable "~/.rbenv/shims/gem"
+#   end
+# end
 
-package :install_bundler do
-  requires :use_rbenv
-  requires :install_rubygems
+# package :install_bundler do
+#   requires :use_rbenv
+#   requires :install_rubygems
 
-  runner "gem install bundler --no-rdoc --no-ri", sudo: true
-  runner "rbenv rehash", sudo: true
+#   runner "gem install bundler --no-rdoc --no-ri"
+#   runner "rbenv rehash"
   
-  verify do
-    has_executable "~/.rbenv/shims/bundle"
-  end
-end
+#   verify do
+#     has_executable "~/.rbenv/shims/bundle"
+#   end
+# end
 
-package :ruby_essentials do
-  apt 'libssl-dev zlib1g zlib1g-dev libreadline-dev', sudo: true
-end
+# package :ruby_essentials do
+#   apt 'libssl-dev zlib1g zlib1g-dev libreadline-dev build-essential', sudo: true
+# end
 
-package :ruby_rbenv, provides: :ruby do
-  requires :ruby_essentials
-  requires :install_rubygems
-  requires :install_bundler
-end
+# package :rbenv_sudo do 
+#   requires :install_rbenv
+
+#   runner "git clone git://github.com/dcarley/rbenv-sudo.git ~/.rbenv/plugins/rbenv-sudo"
+
+#   verify { has_directory '~/.rbenv/plugins/rbenv-sudo' }
+# end
+
+# package :ruby_rbenv, provides: :ruby do
+#   requires :ruby_essentials
+#   requires :install_rubygems
+#   requires :install_bundler
+# end
