@@ -2,7 +2,11 @@ require '../conf'
 version = Site::CONFIG[:ruby_version]
 
 package :ruby do 
-  requires :ruby_essentials, :tmp
+  requires :ruby_build, :ruby_gems, :bundler
+end
+
+package :ruby_build do 
+  requires :ruby_essentials
 
   file "/etc/ruby-install.sh", contents: render("ruby_install.sh"), sudo: true
   runner "chmod u+x /etc/ruby-install.sh", sudo: true
@@ -13,6 +17,19 @@ end
 
 package :ruby_essentials do 
   apt "build-essential zlib1g-dev libssl-dev libreadline6-dev libyaml-dev checkinstall libgdbm-dev", sudo: true
+end
+
+package :ruby_gems do
+  requires :ruby_build
+  push_text "gem: --no-ri --no-rdoc", "~/.gemrc"
+  runner "gem update --system", sudo: true
+
+  verify { has_file "~/.gemrc" }
+end
+
+package :bundler do 
+  runner "gem install bundler", sudo: true
+  verify { has_executable "bundle" }
 end
 
 # gave up on rvm and rbenv, mostly sprinkle's fault for using a weird shell

@@ -1,11 +1,13 @@
 require '../conf'
 Dir["./packages/*.rb"].each {|file| require file }
 
-
 policy :stack, :roles => :app do 
   requires :git
   requires :utils
   requires :ruby
+  requires :server
+  requires :appserver
+  requires :fs
 end
 
 deployment do
