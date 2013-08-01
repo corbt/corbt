@@ -1,5 +1,5 @@
 # Set your full path to application.
-app_path = Site::CONFIG[:app_dir]+"/current"
+app_path = "/data/apps/site/current"
 
 # Set unicorn options
 worker_processes 1
@@ -7,7 +7,7 @@ preload_app true
 timeout 180
 listen "127.0.0.1:9000"
 
-# Spawn unicorn master worker for user apps (group: apps)/
+# Spawn unicorn master worker for user deploy
 user 'deploy', 'deploy' 
 
 # Fill path to your app
