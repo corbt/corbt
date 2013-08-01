@@ -7,7 +7,7 @@ policy :stack, :roles => :app do
   requires :ruby
   requires :server
   requires :appserver
-  requires :fs
+  requires :nodejs
 end
 
 deployment do
