@@ -10,7 +10,7 @@ end
 package :create_user do
   runner "useradd deploy -s /bin/bash -m -d /home/deploy"
   runner "echo \"deploy:#{password}\" | chpasswd"
-  runner "echo \"deploy ALL=NOPASSWD: ALL\" >> /etc/sudoers"
+  runner "echo \"deploy ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers"
   runner "apt-get update"
 
   verify { has_user "deploy" }
