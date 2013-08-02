@@ -8,9 +8,9 @@ end
 package :ruby_build do 
   requires :ruby_essentials
 
-  file "/etc/ruby-install.sh", contents: render("ruby_install.sh"), sudo: true
-  runner "chmod u+x /etc/ruby-install.sh", sudo: true
-  runner "/etc/ruby-install.sh", sudo: true
+  file "~/tmp/ruby-install.sh", contents: render("ruby_install.sh")
+  runner "chmod u+x ~/tmp/ruby-install.sh"
+  runner "~/tmp/ruby-install.sh", sudo: true
 
   verify { has_executable_with_version "ruby", version.delete("-"), "-v" }
 end

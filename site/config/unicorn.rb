@@ -36,7 +36,7 @@ before_fork do |server, worker|
   end
 end
 
-listen "/tmp/corbt.sock", :backlog => 64
+listen "#{app_path}/tmp/unicorn.sock", :backlog => 64
 
 after_fork do |server, worker|
   ActiveRecord::Base.establish_connection
