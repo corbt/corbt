@@ -29,11 +29,11 @@ namespace :deploy do
     task :precompile, :except => { :no_release => true } do
       run <<-CMD.compact
         cd -- #{latest_release.shellescape} &&
-        #{rake} RAILS_ENV=#{rails_env.to_s.shellescape} #{asset_env} assets:precompile
+        #{rake} RAILS_ENV=#{rails_env.to_s.shellescape} assets:precompile
       CMD
     end
   end
 end
 
 
-after 'deploy:restart', 'unicorn:restart', 'deploy:assets:precompile'
+after 'deploy:restart', 'unicorn:reload', 'deploy:assets:precompile'
