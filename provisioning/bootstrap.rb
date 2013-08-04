@@ -8,10 +8,10 @@ STDIN.noecho do
 end
 
 package :create_user do
-  runner "useradd deploy -s /bin/bash -m -d /home/deploy"
-  runner "echo \"deploy:#{password}\" | chpasswd"
-  runner "echo \"deploy ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers"
-  runner "apt-get update"
+  runner "useradd deploy -s /bin/bash -m -d /home/deploy", sudo: true
+  runner "echo \"deploy:#{password}\" | chpasswd", sudo: true
+  runner "echo \"deploy ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers", sudo: true
+  runner "apt-get update", sudo: true
 
   verify { has_user "deploy" }
 end
