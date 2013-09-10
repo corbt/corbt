@@ -35,5 +35,4 @@ namespace :deploy do
   end
 end
 
-
 after 'deploy:restart', 'deploy:assets:precompile', 'unicorn:reload'
