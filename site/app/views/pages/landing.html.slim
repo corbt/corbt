@@ -1,13 +1,17 @@
 - @title = "Kyle Corbitt"
 
 #narrow
-	#header
-		= image_tag "me.png", class: "profile"
-		#whoami Hi, I'm Kyle Corbitt
-	#about
-		markdown:
-			My mission is to use technology to do things that have never been done before.  I think that automation is a *good thing* that will allow us to solve tough problems and achieve exciting goals communally.  That's what interested me in technology in the first place, and that's what I want to do with it.
+	span itemscope='' itemtype="http://data-vocabulary.org/Person"
+		#header
+			= image_tag "me.png", class: "profile", itemprop: "photo"
+			#whoami 
+				| Hi, I'm 
+				span itemprop="name" Kyle Corbitt
 
-			I'm a student and a developer.  I use the tools best suited for the job.  My previous [employment](https://coachalba.com/) was in Rails, and my latest [project](http://troll.cs.byu.edu) combines an Angular frontend with a lightweight Rails backend.  You may be interested in my [github](https://github.com/kcorbitt).  
+		#about
+			markdown:
+				My mission is to use technology to do things that have never been done before.  I think that automation is a *good thing* that will allow us to solve tough problems and achieve exciting goals communally.  That's what interested me in technology in the first place, and that's what I want to do with it.
 
-			I can be contacted at kyle@ this domain.
+				I'm a student and a developer.  I use the tools best suited for the job.  My previous [employment](https://coachalba.com/) was in Rails, and my latest [project](http://troll.cs.byu.edu) combines an Angular frontend with a lightweight Rails backend.  You may also be interested in my [github](https://github.com/kcorbitt).  
+
+				I can be contacted at kyle@ this domain.
