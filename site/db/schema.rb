@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130928233851) do
+ActiveRecord::Schema.define(version: 20130929035657) do
 
   create_table "incidents", force: true do |t|
     t.text     "blob"
     t.integer  "incidentId"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "region"
   end
 
 end
