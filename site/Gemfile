@@ -29,5 +29,7 @@ gem 'high_voltage'
 gem 'slim'
 gem 'redcarpet'
 
+gem 'whenever'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

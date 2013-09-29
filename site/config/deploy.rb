@@ -35,4 +35,4 @@ namespace :deploy do
   end
 end
 
-after 'deploy:restart', 'deploy:assets:precompile', 'unicorn:restart'
+after 'deploy:restart', 'deploy:assets:precompile', 'deploy:migrate', 'unicorn:stop', 'unicorn:start'
