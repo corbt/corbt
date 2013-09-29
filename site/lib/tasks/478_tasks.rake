@@ -12,7 +12,7 @@ namespace :cs478 do
 		req = Net::HTTP::Get.new(url.to_s)
 		data = Net::HTTP.start(url.host, url.port) {|http| http.request(req) }
 		json = JSON.parse(data.body)
-
+		puts Time.now
 		json['resourceSets'][0]['resources'].each do |incident|
 			id = incident['incidentId']
 			if Incident.find_by_incidentId(id).nil?
