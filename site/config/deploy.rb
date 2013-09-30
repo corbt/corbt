@@ -2,6 +2,11 @@ require '../conf'
 require 'capistrano/ext/multistage'
 require 'capistrano-unicorn'
 require 'bundler/capistrano'
+require 'whenever/capistrano'
+
+set :whenever_roles, [:app]
+set :whenever_command, 'bundle exec whenever'
+
 Dir[File.join(File.dirname(__FILE__),"deploy","recipes","**","*.rb")].each{ |f| require f }
 
 
@@ -35,4 +40,4 @@ namespace :deploy do
   end
 end
 
-after 'deploy:restart', 'deploy:assets:precompile', 'deploy:migrate', 'unicorn:stop', 'unicorn:start'
+after 'deploy:restart', 'deploy:assets:precompile', 'deploy:migrate', 'whenever:update_crontab' 'unicorn:stop', 'unicorn:start'

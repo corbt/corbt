@@ -32,7 +32,7 @@ namespace :cs478 do
 			json['resourceSets'][0]['resources'].each do |incident|
 				id = incident['incidentId']
 				if Incident.find_by_incidentId(id).nil?
-					Incident.create(blob: incident.to_s, incidentId: id, region: region.name)
+					Incident.create(blob: JSON.pretty_generate(incident), incidentId: id, region: region.name)
 					puts "\t\tpersisted incident #{id}"
 				else
 					puts "\t\tduplicate incident #{id} discarded"

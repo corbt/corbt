@@ -1,0 +1,13 @@
+- @title = "CS 478 Machine Learning data"
+#ml_container
+	h2 Traffic Incident Datasets
+	table
+		tr
+			th.left Data set
+			th Records
+		- Incident.select("region, count(region) as count").group("region").each do |region| 
+			tr
+				td
+					= link_to region.region.titleize, "478/#{region.region}"
+				td
+					= region.count
