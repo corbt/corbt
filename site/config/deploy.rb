@@ -40,4 +40,4 @@ namespace :deploy do
   end
 end
 
-after 'deploy:restart', 'deploy:assets:precompile', 'deploy:migrate', 'whenever:update_crontab' 'unicorn:stop', 'unicorn:start'
+after 'deploy:restart', 'deploy:assets:precompile', 'deploy:migrate', 'whenever:update_crontab', 'unicorn:stop', 'unicorn:start'
