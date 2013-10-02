@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130929035657) do
+ActiveRecord::Schema.define(version: 20131002232232) do
 
   create_table "incidents", force: true do |t|
     t.text     "blob"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20130929035657) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "region"
+    t.text     "weather"
   end
 
 end

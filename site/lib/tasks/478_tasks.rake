@@ -20,24 +20,38 @@ regions = [
 namespace :cs478 do 
 	desc "Poll the Bing incidents API"
 	task :slurp_bing => :environment do
-		key = "AvwV4cUSi6kmQlDSmC7u3UEh_h3HqUaw81GSZ6nN7hkCPegKT6Rd-a602xJ3NSAP"
 		puts Time.now
 		regions.each do |region|
 			puts "\tProcessing region #{region.name}"
 
-			url = URI.parse("http://dev.virtualearth.net/REST/v1/Traffic/Incidents/#{region.coord1},#{region.coord2}?t=1&key=#{key}")
+			url = URI.parse("http://dev.virtualearth.net/REST/v1/Traffic/Incidents/#{region.coord1},#{region.coord2}?t=1&key=#{ML478::BING_KEY}")
 			req = Net::HTTP::Get.new(url.to_s)
 			data = Net::HTTP.start(url.host, url.port) {|http| http.request(req) }
 			json = JSON.parse(data.body)
 			json['resourceSets'][0]['resources'].each do |incident|
 				id = incident['incidentId']
 				if Incident.find_by_incidentId(id).nil?
-					Incident.create(blob: JSON.pretty_generate(incident), incidentId: id, region: region.name)
-					puts "\t\tpersisted incident #{id}"
+					puts "\t\tpersisting incident #{id}"
+					weather = get_weather incident
+					Incident.create(blob: JSON.pretty_generate(incident), incidentId: id, region: region.name, weather: weather)
 				else
 					puts "\t\tduplicate incident #{id} discarded"
 				end
 			end
 		end
+	end
+end
+
+def get_weather incident
+	begin
+		coords = incident['point']['coordinates']
+		sleep 3.seconds # because of API throttling
+		url = URI.parse("http://api.wunderground.com/api/#{ML478::WU_KEY}/conditions/astronomy/q/#{coords[0]},#{coords[1]}.json")
+		req = Net::HTTP::Get.new(url.to_s)
+		data = Net::HTTP.start(url.host, url.port) {|http| http.request(req) }
+		puts "\t\t\tweather lookup successful"
+		data.body
+	rescue
+		puts "\t\t\tweather lookup failed"
 	end
 end
