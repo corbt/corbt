@@ -45,7 +45,7 @@ end
 def get_weather incident
 	begin
 		coords = incident['point']['coordinates']
-		sleep 3.seconds # because of API throttling
+		sleep 7.seconds # because of API throttling
 		url = URI.parse("http://api.wunderground.com/api/#{ML478::WU_KEY}/conditions/astronomy/q/#{coords[0]},#{coords[1]}.json")
 		req = Net::HTTP::Get.new(url.to_s)
 		data = Net::HTTP.start(url.host, url.port) {|http| http.request(req) }
