@@ -8,6 +8,6 @@
 		- Incident.current.select("region, count(region) as count").group("region").each do |region| 
 			tr
 				td
-					= link_to region.region.titleize, "/478/#{region.region}"
+					= link_to region.region.titleize, "/478/#{region.region}.json"
 				td
 					= region.count
