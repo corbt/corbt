@@ -5,7 +5,7 @@ class Incident < ActiveRecord::Base
 	def hash
 		data = JSON.parse(blob)
 		data['weather'] = JSON.parse(weather)
-		Rails.logger.debug data
+		data['traffic']	= JSON.parse(traffic) if not traffic.nil?
 		data
 	end
 end
