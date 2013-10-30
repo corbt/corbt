@@ -8,4 +8,8 @@ class Incident < ActiveRecord::Base
 		data['traffic']	= JSON.parse(traffic) if not traffic.nil?
 		data
 	end
+	def self.region_to_json region
+		incidents = current.where(region: region)
+		return incidents.map{|incident| incident.hash}.to_json
+	end
 end

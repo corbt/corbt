@@ -12,6 +12,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'actionpack-page_caching'
+gem 'redis'
 
 group :production do 
 	gem 'unicorn'

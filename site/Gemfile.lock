@@ -99,6 +99,7 @@ GEM
     raindrops (0.12.0)
     rake (10.1.0)
     redcarpet (3.0.0)
+    redis (3.0.5)
     sass (3.2.12)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -155,6 +156,7 @@ DEPENDENCIES
   pg
   rails (= 4.0.0)
   redcarpet
+  redis
   sass-rails (~> 4.0.0)
   slim
   turbolinks
