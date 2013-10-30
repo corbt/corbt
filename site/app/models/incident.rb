@@ -1,6 +1,6 @@
 class Incident < ActiveRecord::Base
 	def self.current
-		where("weather IS NOT NULL")
+		where("weather IS NOT NULL").where("traffic IS NOT NULL")
 	end
 	def hash
 		data = JSON.parse(blob)
