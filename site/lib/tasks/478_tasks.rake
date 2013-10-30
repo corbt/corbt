@@ -39,8 +39,11 @@ namespace :cs478 do
 					puts "\t\tduplicate incident #{id} discarded"
 				end
 			end
-			# Cache JSON
-			puts "\tCaching region JSON"
+		end
+
+		# Cache JSON after to not cause problems
+		regions.each do |region|
+			puts "\tCaching JSON for region #{region.name}"
 			$redis.set("ml/regions/#{region.name}", Incident.region_to_json(region.name))
 		end
 	end
