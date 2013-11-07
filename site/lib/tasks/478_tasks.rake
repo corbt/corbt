@@ -18,28 +18,28 @@ regions = [
 ]
 
 namespace :cs478 do 
-	# desc "Poll the Bing incidents API"
+	desc "Poll the Bing incidents API"
 	task :slurp_bing => :environment do
-	# 	puts Time.now
-	# 	regions.each do |region|
-	# 		puts "\tProcessing region #{region.name}"
+		puts Time.now
+		regions.each do |region|
+			puts "\tProcessing region #{region.name}"
 
-	# 		url = URI.parse("http://dev.virtualearth.net/REST/v1/Traffic/Incidents/#{region.coord1},#{region.coord2}?t=1&key=#{ML478::BING_KEY}")
-	# 		req = Net::HTTP::Get.new(url.to_s)
-	# 		data = Net::HTTP.start(url.host, url.port) {|http| http.request(req) }
-	# 		json = JSON.parse(data.body)
-	# 		json['resourceSets'][0]['resources'].each do |incident|
-	# 			id = incident['incidentId']
-	# 			if Incident.find_by_incidentId(id).nil?
-	# 				puts "\t\tpersisting incident #{id}"
-	# 				weather = get_weather incident
-	# 				traffic = get_traffic incident
-	# 				Incident.create(blob: JSON.pretty_generate(incident), incidentId: id, region: region.name, weather: weather, traffic: traffic)					
-	# 			else
-	# 				puts "\t\tduplicate incident #{id} discarded"
-	# 			end
-	# 		end
-	# 	end
+			url = URI.parse("http://dev.virtualearth.net/REST/v1/Traffic/Incidents/#{region.coord1},#{region.coord2}?t=1&key=#{ML478::BING_KEY}")
+			req = Net::HTTP::Get.new(url.to_s)
+			data = Net::HTTP.start(url.host, url.port) {|http| http.request(req) }
+			json = JSON.parse(data.body)
+			json['resourceSets'][0]['resources'].each do |incident|
+				id = incident['incidentId']
+				if Incident.find_by_incidentId(id).nil?
+					puts "\t\tpersisting incident #{id}"
+					weather = get_weather incident
+					traffic = get_traffic incident
+					Incident.create(blob: JSON.pretty_generate(incident), incidentId: id, region: region.name, weather: weather, traffic: traffic)					
+				else
+					puts "\t\tduplicate incident #{id} discarded"
+				end
+			end
+		end
 
 		# Cache JSON after to not cause problems
 		regions.each do |region|
