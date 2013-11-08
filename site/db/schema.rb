@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131021205626) do
+ActiveRecord::Schema.define(version: 20131108041335) do
 
   create_table "incidents", force: true do |t|
     t.text     "blob"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20131021205626) do
     t.string   "region"
     t.text     "weather"
     t.text     "traffic"
+  end
+
+  create_table "traffic_readings", force: true do |t|
+    t.string   "label"
+    t.text     "reading"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
