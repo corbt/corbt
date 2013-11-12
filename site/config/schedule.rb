@@ -11,6 +11,10 @@ every 10.minutes do
 	rake 'cs598r:slurp_bing'
 end
 
+every 1.hours do
+	rake 'cs598r:cache_json'
+end
+
 every 30.minutes do
 	rake 'cs598r:slurp_wu'
 end

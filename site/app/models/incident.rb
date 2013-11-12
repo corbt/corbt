@@ -4,6 +4,7 @@ class Incident < ActiveRecord::Base
 	end
 	def to_json
 		data = JSON.parse(blob)
+		data['time'] = created_at
 		data['weather'] = JSON.parse(weather)
 		data['traffic']	= JSON.parse(traffic) if not traffic.nil?
 		data.to_json
