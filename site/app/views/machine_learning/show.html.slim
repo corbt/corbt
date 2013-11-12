@@ -1,5 +1,5 @@
 - @title = "CS 478 Machine Learning data"
-#ml_container
+.ml_container
 	h2 Traffic Incident Datasets
 	table
 		tr
@@ -11,3 +11,16 @@
 					= link_to region.region.titleize, "/478/#{region.region}.json"
 				td
 					= region.count
+
+.ml_container
+	h2 Traffic Reading Datasets
+	table
+		tr
+			th.left Data set
+			th Records
+		- TrafficReading.current.select("label, count(region) as count").group("label").order(:label).each do |reading| 
+			tr
+				td
+					= link_to reading.label.titleize, "/478/traffic/#{reading.label}.json"
+				td
+					= reading.count

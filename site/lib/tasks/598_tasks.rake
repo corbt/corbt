@@ -34,6 +34,12 @@ namespace :cs598r do
 				weather_reading: WeatherReading.where(label: location.region).last
 			)
 		end
+
+		# Cache JSON after to not cause problems
+		locations.each do |location|
+		  out.puts "\tCaching JSON for label #{location.label}"
+		  TrafficReading.save_region_to_disk location.label
+		end
 		puts out.string
 	end
 
