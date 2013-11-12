@@ -14,6 +14,18 @@ class TrafficReading < ActiveRecord::Base
 		data.to_json
 	end
 
+	def human_label
+		labels = {
+			"seattle_cl" => "Seattle Statium",
+			"seattle_fb" => "Seattle Waterfront",
+			"seattle_hm" => "Seattle Bellevue",
+			"provo_lv" => "Provo Lavell Edwards",
+			"provo_cp" => "Provo South Campus",
+			"provo_wm" => "Provo Walmart",
+		}
+		labels[label]
+	end
+
 	def self.save_region_to_disk label
 		readings = current.where(label: label).includes(:weather_reading)
 

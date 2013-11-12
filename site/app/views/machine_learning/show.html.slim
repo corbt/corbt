@@ -21,6 +21,6 @@
 		- TrafficReading.current.select("label, count(region) as count").group("label").order(:label).each do |reading| 
 			tr
 				td
-					= link_to reading.label.titleize, "/478/traffic/#{reading.label}.json"
+					= link_to reading.human_label, "/478/traffic/#{reading.label}.json"
 				td
 					= reading.count
