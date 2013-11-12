@@ -6,7 +6,9 @@ class TrafficReading < ActiveRecord::Base
 	end
 
 	def to_json
-		data = JSON.parse(reading)
+		data = {}
+		data['time'] = created_at
+		data['traffic'] = JSON.parse(reading)
 		data['weather'] = JSON.parse(weather_reading.reading)
 		data['region'] = region
 		data.to_json
