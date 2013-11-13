@@ -25,7 +25,7 @@ class TrafficReading < ActiveRecord::Base
 			"provo_cp" => "Provo South Campus",
 			"provo_wm" => "Provo Walmart",
 		}
-		labels[label]
+		labels.has_key?(label) ? labels[label] : label.titleize
 	end
 
 	def self.save_region_to_disk label

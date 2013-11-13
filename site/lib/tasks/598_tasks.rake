@@ -9,12 +9,16 @@ locations = [
 	Location.new(47.553, -122.118, "seattle_hm", "seattle"),
 	Location.new(40.257, -111.654, "provo_lv", "provo"),
 	Location.new(40.245, -111.646, "provo_cp", "provo"),
-	Location.new(40.272, -111.708, "provo_wm", "provo")
+	Location.new(40.272, -111.708, "provo_wm", "provo"),
+	Location.new(37.72362, -122.40134, "sf_bayview", "sf"),
+	Location.new(37.78206, -121.97779, "sf_680", "sf"),
+	Location.new(37.40205, -122.03163, "sf_southbay", "sf")
 ]
 
 weather_locations = [
 	Location.new(47.594, -122.332, nil, "seattle"),
-	Location.new(40.257, -111.654, nil, "provo")
+	Location.new(40.257, -111.654, nil, "provo"),
+	Location.new(37.72362, -122.40134, nil, "sf")
 ]
 
 namespace :cs598r do
