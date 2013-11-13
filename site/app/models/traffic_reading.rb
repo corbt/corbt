@@ -1,13 +1,15 @@
 class TrafficReading < ActiveRecord::Base
 	belongs_to :weather_reading
 
+	include Timezones
+
 	def self.current
 		where('weather_reading_id is not null')
 	end
 
 	def to_json
 		data = {}
-		data['time'] = created_at
+		data['time'] = created_at.in_time_zone(Timezones::lookup region)
 		data['traffic'] = JSON.parse(reading)
 		data['weather'] = JSON.parse(weather_reading.reading)
 		data['region'] = region

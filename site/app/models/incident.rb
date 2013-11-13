@@ -1,10 +1,12 @@
 class Incident < ActiveRecord::Base
+	include Timezones
+
 	def self.current
-		where("weather IS NOT NULL").where("traffic IS NOT NULL")
+		where("weather IS NOT NULL").where("traffic IS NOT NULL").where("region in (?)", ["slc","seattle","sf","la","nyc"])
 	end
 	def to_json
 		data = JSON.parse(blob)
-		data['time'] = created_at
+		data['time'] = created_at.in_time_zone(Timezones::lookup region)
 		data['weather'] = JSON.parse(weather)
 		data['traffic']	= JSON.parse(traffic) if not traffic.nil?
 		data.to_json
