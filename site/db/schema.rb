@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131111173030) do
+ActiveRecord::Schema.define(version: 20131118023829) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "incidents", force: true do |t|
     t.text     "blob"
@@ -33,6 +36,27 @@ ActiveRecord::Schema.define(version: 20131111173030) do
   end
 
   add_index "traffic_readings", ["weather_reading_id"], name: "index_traffic_readings_on_weather_reading_id", using: :btree
+
+  create_table "usenet_lists", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "usenet_threads", force: true do |t|
+    t.integer  "usenet_list_id"
+    t.string   "thread_id"
+    t.string   "title"
+    t.date     "date"
+    t.integer  "num_posts"
+    t.integer  "num_authors"
+    t.integer  "num_corbitt"
+    t.json     "posts"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "usenet_threads", ["usenet_list_id"], name: "index_usenet_threads_on_usenet_list_id", using: :btree
 
   create_table "weather_readings", force: true do |t|
     t.text     "reading"

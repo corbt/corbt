@@ -1,12 +1,18 @@
 development:
   adapter: postgresql
   database: corbt_site
+  user: kyle
+  password: 
+  host: localhost
   pool: 5
   timeout: 5000
 
 test:
   adapter: postgresql
   database: corbt_test
+  user: kyle
+  password:
+  host: localhost
   pool: 5
   timeout: 5000
 
