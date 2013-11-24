@@ -13,7 +13,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'angularjs-rails'
-gem 'twitter-bootstrap-rails'
 
 gem 'actionpack-page_caching'
 gem 'redis'
