@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131118023829) do
+ActiveRecord::Schema.define(version: 20131124170852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 20131118023829) do
     t.datetime "updated_at"
   end
 
+  create_table "usenet_posts", force: true do |t|
+    t.string   "author"
+    t.date     "date"
+    t.boolean  "corbitt"
+    t.text     "content"
+    t.integer  "usenet_thread_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "usenet_posts", ["usenet_thread_id"], name: "index_usenet_posts_on_usenet_thread_id", using: :btree
+
   create_table "usenet_threads", force: true do |t|
     t.integer  "usenet_list_id"
     t.string   "thread_id"
@@ -51,9 +63,9 @@ ActiveRecord::Schema.define(version: 20131118023829) do
     t.integer  "num_posts"
     t.integer  "num_authors"
     t.integer  "num_corbitt"
-    t.json     "posts"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "url"
   end
 
   add_index "usenet_threads", ["usenet_list_id"], name: "index_usenet_threads_on_usenet_list_id", using: :btree
