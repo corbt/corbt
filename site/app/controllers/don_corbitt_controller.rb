@@ -1,7 +1,5 @@
 class DonCorbittController < ApplicationController
-	def show
 
-	end
 	def get_threads_by_list 
 		render json: UsenetList.find(params[:list_id]).usenet_threads
 	end

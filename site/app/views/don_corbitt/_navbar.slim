@@ -1,0 +1,16 @@
+nav class="navbar navbar-default" role="navigation"
+	/ div class="navbar-header"
+	a class="navbar-brand" The Don Corbitt Project
+	/ div class="collapse navbar-collapse"
+	ul class="nav navbar-nav" 
+		- [["about","about"],["usenet posts","posts"]].each do |item|
+			- if item[0] == current
+				li class="active"
+					a href="#" #{item[0].titleize}
+			- else
+				li
+					a href="#{item[1]}" #{item[0].titleize}
+		/ li class="active" 
+		/ 	a href="#" About
+		/ li
+		/ 	a href="posts" Usenet Posts
