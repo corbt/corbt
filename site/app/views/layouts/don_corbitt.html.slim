@@ -1,0 +1,17 @@
+doctype html
+html ng-app='dc' data-no-turbolink=''
+	head
+		= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"
+
+		= render partial: "layouts/analytics"
+		= stylesheet_link_tag    "application", media: "all"
+		= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic"
+		= javascript_include_tag "application"
+		= csrf_meta_tags
+
+		title
+			= "Don Corbitt Project | "+@page.titleize
+
+	body class="static"
+		=render "navbar"
+		== yield

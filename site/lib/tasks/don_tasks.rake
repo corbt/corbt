@@ -10,8 +10,9 @@ namespace :dc do
 		file = File.open('/home/kyle/proj/DonCorbittProject/usenet/json/data.json')
 		threads = JSON.parse(file.read)
 		threads.each do |thread|
-			# thread["posts"] = thread["posts"].to_json
-			thread["usenet_list"] = UsenetList.find_or_create_by_name(thread["list"])
+			list = UsenetList.find_or_create_by_name(thread["list"])
+			list.increment(:num_threads).save
+			thread["usenet_list"] = list
 			posts = thread["posts"]
 			thread.except!("list", "posts")
 

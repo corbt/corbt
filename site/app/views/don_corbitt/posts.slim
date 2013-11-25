@@ -1,4 +1,21 @@
-- @title = "Don Corbitt Project | Usenet Posts"
-- @app_name = "dc"
+- @page = "usenet posts"
 
-= render "navbar", current: "usenet posts"
+#usenet.container ng-controller="dc_cntl"
+	.row
+		#lists.scroll-col.col-md-3
+			.title Lists
+			/ button ng-click="alert()" test button
+			ul
+				li ng-repeat="list in lists"
+					.unselected ng-if="selected != list.id"
+						a ng-href="#list_{{list.id}}" ng-click="select_list(list)"
+							|{{list.name}} ({{list.num_threads}})
+					.selected ng-if="selected == list.id"
+						|{{list.name}} ({{list.num_threads}})
+		#threads.scroll-col.col-md-3 
+			.filler No list selected
+		#posts.scroll-col.col-md-6
+			.filler No thread selected
+
+javascript:
+	lists = #{raw UsenetList.all.order('num_threads desc').to_json}

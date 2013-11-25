@@ -5,3 +5,50 @@
 .navbar-brand {
 	font-weight: bold;
 }
+
+#usenet {
+	$empty-background: #eee;
+	height: 800px;
+
+	.title {
+		font-weight: bold;
+	}
+
+	#lists {
+		ul {
+			padding-left: 25px;
+		}
+		.selected {
+			font-weight: bold;
+		}
+	}
+
+	#threads {
+		background: $empty-background;
+		border-right: 1px solid white;
+	}
+
+	#posts {
+		background: $empty-background;
+	}
+
+	.row {
+		height: 100%;
+	}
+
+	.scroll-col {
+		height: 100%;
+		overflow: auto;
+
+		.filler {
+			margin-top: 30px;
+			text-align: center;
+			font-size: 2em;
+		}
+	}
+}
+
+body.static {
+	height: 100%;
+	overflow: hidden;
+}
