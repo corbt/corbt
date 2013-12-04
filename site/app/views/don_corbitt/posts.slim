@@ -7,13 +7,14 @@
 			/ button ng-click="alert()" test button
 			ul
 				li ng-repeat="list in lists"
-					.unselected ng-if="selected != list.id"
+					.unselected ng-if="current_list != list.id"
 						a ng-href="#list_{{list.id}}" ng-click="select_list(list)"
 							|{{list.name}} ({{list.num_threads}})
-					.selected ng-if="selected == list.id"
+					.selected ng-if="current_list == list.id"
 						|{{list.name}} ({{list.num_threads}})
 		#threads.scroll-col.col-md-3 
-			.filler No list selected
+			= render partial: "thread_summary"
+			.filler ng-if="!current_list" No list selected
 		#posts.scroll-col.col-md-6
 			.filler No thread selected
 

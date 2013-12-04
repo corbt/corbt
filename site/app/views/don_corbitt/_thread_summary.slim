@@ -1,0 +1,8 @@
+.thread-summary ng-if="current_list" ng-repeat="thread in current_threads()" ng-click="select_thread(thread)" ng-class="(thread.id == current_thread) ? 'selected' : ''"
+	.thread-title 
+		|{{thread.title}}
+	.thread-data
+		.thread-date
+			|{{thread.date | date:'M/dd/yy'}}
+		.thread-count
+			|({{thread.num_corbitt}}/{{thread.num_posts}})

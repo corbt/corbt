@@ -26,6 +26,7 @@
 	#threads {
 		background: $empty-background;
 		border-right: 1px solid white;
+		padding: 1px 0;
 	}
 
 	#posts {
@@ -44,6 +45,39 @@
 			margin-top: 30px;
 			text-align: center;
 			font-size: 2em;
+		}
+	}
+
+	.thread-summary {
+		background: white;
+		border-bottom: 1px solid #ddd;
+		overflow: hidden;
+		cursor: pointer;
+
+		.thread-title {
+			font-weight: bold;
+		}
+
+		div {
+			text-overflow: ellipses;
+			height: 50px;
+			padding: 3px;
+			display: inline-block;
+			vertical-align: top;
+		}
+		.thread-title {
+			width: 70%;
+		}
+		.thread-data {
+			width: 30%;
+			div {
+				height: auto;
+				display: block;
+			}
+		}
+
+		&.selected {
+			background: #D6EBF7;
 		}
 	}
 }

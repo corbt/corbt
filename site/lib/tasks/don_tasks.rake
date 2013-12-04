@@ -8,8 +8,13 @@ namespace :dc do
 		UsenetPost.destroy_all
 
 		file = File.open('/home/kyle/proj/DonCorbittProject/usenet/json/data.json')
-		threads = JSON.parse(file.read)
-		threads.each do |thread|
+		file.each_line do |thread|
+			begin
+				thread = JSON.parse(thread)
+			rescue
+				"Bad thread: #{thread["list"]}/#{thread["id"]}"
+				break
+			end
 			list = UsenetList.find_or_create_by_name(thread["list"])
 			list.increment(:num_threads).save
 			thread["usenet_list"] = list
