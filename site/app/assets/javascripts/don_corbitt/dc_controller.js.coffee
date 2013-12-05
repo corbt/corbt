@@ -7,6 +7,7 @@ angular.module('dc').controller 'dc_cntl', ($scope, $http) ->
 	$scope.select_list = (list) ->
 		$scope.load_threads list.id
 		$scope.current_list = list.id
+		$scope.current_thread = null
 
 	$scope.load_threads = (list) ->
 		unless $scope.threads[list]?
@@ -20,8 +21,11 @@ angular.module('dc').controller 'dc_cntl', ($scope, $http) ->
 
 	$scope.select_thread = (thread) ->
 		$scope.current_thread = thread.id
-		console.log thread
+
+	$scope.current_posts = ->
+		$scope.posts[$scope.current_thread]
 
 	$scope.lists = lists
 	$scope.threads = {}
+	$scope.posts = {}
 	# $scope.select_list lists[0]

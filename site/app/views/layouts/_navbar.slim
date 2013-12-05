@@ -1,0 +1,14 @@
+- tabs = ["about","blog"]
+
+nav class="navbar navbar-default" role="navigation"
+	/ div class="navbar-header"
+	a class="navbar-brand" href="/" corbt
+	/ div class="collapse navbar-collapse"
+	ul class="nav navbar-nav" 
+		- tabs.each do |tab|
+			- if tab == @page or (@page.nil? and tab == "blog")
+				li class="active"
+					a href="#" #{tab.titleize}
+			- else
+				li
+					a href="/#{tab}" #{tab.titleize}

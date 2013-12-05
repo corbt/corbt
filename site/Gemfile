@@ -13,8 +13,14 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
+# Blog
+gem 'bloggy', :github => 'jesseadams/bloggy', :branch => 'fix-rake-generate'
+# gem 'bloggy'
+gem 'jekyll-slim'
+
+# Performance
 gem 'actionpack-page_caching'
-gem 'redis'
+# gem 'redis'
 
 group :production do 
 	gem 'unicorn'
