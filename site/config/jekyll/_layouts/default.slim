@@ -1,10 +1,17 @@
 doctype html
 html
 	head
-		title test
+		title 
+			| {{page.title}}
 		| {% RailsCSS %}
 		| {% RailsJS %}
 		link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic" media="screen" rel="stylesheet"
 	body
 		| {% slim _navbar.slim %}
-		| {{content}}
+		.container.blog
+			.row
+				.blurb.col-md-2 
+					markdown:
+						Hi, I'm [Kyle Corbitt](/about). This blog is dedicated to programming, machine learning, and other topics that interest me.
+				.main.col-md-7
+					| {{content}}
