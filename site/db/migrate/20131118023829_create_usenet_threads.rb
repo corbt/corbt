@@ -8,7 +8,7 @@ class CreateUsenetThreads < ActiveRecord::Migration
       t.integer :num_posts
       t.integer :num_authors
       t.integer :num_corbitt
-      t.json :posts
+      t.text :posts
 
       t.timestamps
     end
