@@ -31,6 +31,7 @@ group :development do
 	gem 'capistrano-ext', require: false
 	gem 'capistrano-unicorn', require: false
 	gem 'capistrano-remote-cache-with-project-root'#, require: false
+	gem 'cape', require: false
 end
 
 # Static pages

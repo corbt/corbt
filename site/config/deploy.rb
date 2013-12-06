@@ -3,6 +3,7 @@ require 'capistrano/ext/multistage'
 require 'capistrano-unicorn'
 require 'bundler/capistrano'
 require 'whenever/capistrano'
+require 'cape'
 
 set :whenever_roles, [:app]
 set :whenever_command, 'bundle exec whenever'
@@ -40,4 +41,9 @@ namespace :deploy do
   end
 end
 
+Cape do
+	mirror_rake_tasks :blog
+end
+
 after 'deploy:restart', 'deploy:assets:precompile', 'deploy:migrate', 'whenever:update_crontab', 'unicorn:stop', 'unicorn:start'
+after 'deploy:assets:precompile', 'blog:generate'
