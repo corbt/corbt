@@ -27,7 +27,7 @@ group :production do
 end
 
 group :development do 
-	gem 'capistrano', require: false
+	gem 'capistrano', '~> 2.15', require: false
 	gem 'capistrano-ext', require: false
 	gem 'capistrano-unicorn', require: false
 	gem 'capistrano-remote-cache-with-project-root'#, require: false
