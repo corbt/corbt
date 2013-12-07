@@ -1,3 +1,6 @@
+name: Corbt Blog
+description: This blog is dedicated to programming, machine learning, and other topics that interest me.
+url: http://corbt.com/blog
 markdown: rdiscount
 permalink: /:title.html
 destination: ../../public/blog
