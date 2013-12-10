@@ -4,7 +4,7 @@ package :nginx, provides: :server do
 	runner "apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 00A6F0A3C300EE8C", sudo: true
 	runner "apt-get update", sudo: true
 	apt "nginx", sudo: true
-	runner "service nginx start", sudo: true
+	# runner "service nginx start", sudo: true
 
 	verify { has_apt "nginx" }
 end

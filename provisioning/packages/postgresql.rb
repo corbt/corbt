@@ -4,12 +4,20 @@ package :postgres, :provides => :database do
 end
 
 package :postgres_core do
-  apt %w( postgresql postgresql-client libpq-dev ), sudo: true
+  # apt %w( postgresql postgresql-client libpq-dev ), sudo: true
   
+  push_text "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main\n", 
+    '/etc/apt/sources.list.d/pgdg.list', sudo: true
+  runner 'wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+', sudo: true
+  runner 'apt-get update', sudo: true
+  apt %w( postgresql-9.3 postgresql-client-9.3 libpq-dev ), sudo: true
+
+
   verify do
     has_executable 'psql'
-    has_apt 'postgresql'
-    has_apt 'postgresql-client'
+    has_apt 'postgresql-9.3'
+    has_apt 'postgresql-client-9.3'
     has_apt 'libpq-dev'
   end
 end

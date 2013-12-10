@@ -6,11 +6,11 @@ package :ruby do
 end
 
 package :ruby_build do 
-  requires :ruby_essentials
+  requires :ruby_essentials, :tmp
 
-  file "~/tmp/ruby-install.sh", contents: render("ruby_install.sh")
-  runner "chmod u+x ~/tmp/ruby-install.sh"
-  runner "~/tmp/ruby-install.sh", sudo: true
+  file "/home/deploy/tmp/ruby-install.sh", contents: render('ruby_install.sh')
+  runner "chmod u+x /home/deploy/tmp/ruby-install.sh"
+  runner "/home/deploy/tmp/ruby-install.sh", sudo: true
 
   verify { has_executable_with_version "ruby", version.delete("-"), "-v" }
 end
@@ -21,10 +21,10 @@ end
 
 package :ruby_gems do
   requires :ruby_build
-  push_text "gem: --no-ri --no-rdoc", "~/.gemrc"
+  push_text "gem: --no-ri --no-rdoc", "/home/deploy/.gemrc"
   runner "gem update --system", sudo: true
 
-  verify { has_file "~/.gemrc" }
+  verify { has_file "/home/deploy/.gemrc" }
 end
 
 package :bundler do 

@@ -4,10 +4,10 @@ upstream com_corbt_unicorn {
 
 server {
     listen 80;
-    server_name corbt.com;
+    server_name www.corbt.com;
 
-    access_log /var/log/nginx/corbt-access.log;
-    error_log  /var/log/nginx/corbt-error.log;
+    access_log /var/log/nginx/com.example-access.log;
+    error_log  /var/log/nginx/com.example-error.log;
 
     keepalive_timeout 5;
 
@@ -20,6 +20,16 @@ server {
         proxy_set_header Host $http_host;
         proxy_redirect off;
         proxy_pass http://com_corbt_unicorn;
+
+        proxy_connect_timeout 360;
+        proxy_send_timeout    360;
+        proxy_read_timeout    360;
+
+    }
+
+    location /files {
+        alias /data/apps/web;
+#        autoindex on;
     }
 
     location ~ ^/(assets)/ {
@@ -33,3 +43,4 @@ server {
         root /data/apps/site/current/public;
     }
 }
+
