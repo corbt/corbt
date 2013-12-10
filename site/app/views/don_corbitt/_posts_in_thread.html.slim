@@ -1,0 +1,12 @@
+.thread ng-if="current_thread"
+  .thread-header
+    a.link-original target="_blank" href="{{current_thread.url}}" ng-bind="current_thread.title"
+  .thread-posts
+    .post ng-repeat="post in current_posts()" ng-class="(post.corbitt) ? 'corbitt' : ''"
+      .header ng-click="toggle_post(post)"
+        .author-and-summary
+          .post-author ng-bind="post.author"
+          .post-summary ng-if="!post.expanded" ng-bind="post.summary"
+        .post-date ng-bind="post.date | date:'M/dd/yy'"
+
+      .post-body ng-if="post.expanded" ng-bind-html="post.content"

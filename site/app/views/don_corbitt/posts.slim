@@ -4,19 +4,19 @@
 	.row
 		#lists.scroll-col.col-md-3
 			.title Lists
-			/ button ng-click="alert()" test button
 			ul
 				li ng-repeat="list in lists"
-					.unselected ng-if="current_list != list.id"
+					.unselected ng-if="current_list != list"
 						a ng-href="#list_{{list.id}}" ng-click="select_list(list)"
 							|{{list.name}} ({{list.num_threads}})
-					.selected ng-if="current_list == list.id"
+					.selected ng-if="current_list == list"
 						|{{list.name}} ({{list.num_threads}})
 		#threads.scroll-col.col-md-3 
 			= render partial: "thread_summary"
 			.filler ng-if="!current_list" No list selected
 		#posts.scroll-col.col-md-6
-			.filler No thread selected
+			= render partial: "posts_in_thread"
+			.filler ng-if="!current_thread" No thread selected
 
 javascript:
 	lists = #{raw UsenetList.all.order('num_threads desc').to_json}

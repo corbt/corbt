@@ -2,13 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "bourbon";
+
+html.full-height {
+	height: 100%;
+	body { height: 100%; }
+}
+
 .navbar-brand {
 	font-weight: bold;
 }
 
 #usenet {
 	$empty-background: #eee;
-	height: 800px;
+	height: 85%;
 
 	.title {
 		font-weight: bold;
@@ -25,12 +32,13 @@
 
 	#threads {
 		background: $empty-background;
-		border-right: 1px solid white;
+		border-right: 1px solid #a3a2a2;
 		padding: 1px 0;
 	}
 
 	#posts {
 		background: $empty-background;
+		padding: 1px 0;
 	}
 
 	.row {
@@ -45,6 +53,7 @@
 			margin-top: 30px;
 			text-align: center;
 			font-size: 2em;
+			font-weight: 300;
 		}
 	}
 
@@ -81,9 +90,51 @@
 			background: #D6EBF7;
 		}
 	}
-}
 
-body.static {
-	height: 100%;
-	overflow: hidden;
+	.thread {
+		.thread-header {
+			background: #D9DD77;
+			padding: 10px 5px;
+			.link-original {
+				font-size: 2em;
+			}
+		}
+
+		.post {
+			background: white;
+			padding: 8px 12px;
+			border-bottom: 1px solid $empty-background;
+			overflow: hidden;
+
+			&.corbitt {
+				background: #ecfcdc;
+			}
+		}
+		.header {
+			@include clearfix;
+			cursor: pointer;
+		}
+		.author-and-summary { 
+			width: 480px; 
+			float: left;
+		}
+		.post-author {
+			float: left;
+			margin-right: 8px;
+			font-weight: bold;
+		}
+		.post-summary {
+			vertical-align: bottom;
+
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			color: #888;
+		}
+
+		.post-date {
+			vertical-align: middle;
+			float: right;
+		}
+	}
 }

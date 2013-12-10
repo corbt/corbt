@@ -1,7 +1,8 @@
 doctype html
-html ng-app='dc' data-no-turbolink=''
+html.full-height ng-app='dc' data-no-turbolink=''
 	head
 		= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"
+		= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.min.js"
 
 		= render partial: "layouts/analytics"
 		= stylesheet_link_tag    "application", media: "all"

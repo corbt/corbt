@@ -2,7 +2,7 @@
 
 body {
 	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 300;
+	// font-weight: 300;
 	line-height: 130%;
 }
 
@@ -13,6 +13,10 @@ a {
 	margin: 100px auto 0;
 	max-width: 500px;
 	line-height: 230%;
+}
+
+.light {
+	font-weight: 300;
 }
 
 #header { @include clearfix; }
