@@ -9,6 +9,8 @@ policy :stack, :roles => :app do
   requires :appserver
   requires :database
   requires :nodejs
+  requires :seafile
+  requires :seafile_client
 end
 
 deployment do
