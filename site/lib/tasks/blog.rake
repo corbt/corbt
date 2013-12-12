@@ -22,7 +22,8 @@ namespace :blog do
 	  ARGV.shift
 	  title = ARGV.join(' ')
 
-	  path = "config/jekyll/_posts/#{Date.today}-#{title.downcase.gsub(/[^[:alnum:]]+/, '-')}.markdown"
+	  title_slug = "#{Date.today}-"+title.downcase.gsub(/[^[:alnum:]\s]+/, '').gsub(/\s+/, '-')
+	  path = "config/jekyll/_posts/#{title_slug}.md"
 	  
 	  if File.exist?(path)
 	    puts "[WARN] File exists - skipping create"

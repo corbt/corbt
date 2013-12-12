@@ -45,5 +45,5 @@ Cape do
 	mirror_rake_tasks :blog
 end
 
-after 'deploy:restart', 'deploy:assets:precompile', 'deploy:migrate', 'whenever:update_crontab', 'unicorn:duplicate'
+after 'deploy:restart', 'deploy:assets:precompile', 'deploy:migrate', 'whenever:update_crontab', 'unicorn:stop', 'unicorn:start'
 after 'deploy:assets:precompile', 'blog:g'
