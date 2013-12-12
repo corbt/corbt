@@ -30,7 +30,7 @@ set :default_stage, "production"
 
 set :use_sudo, false
 
-set :unicorn_pid, "#{Site::CONFIG[:app_dir]}/shared/pids/unicorn.pid"
+set :unicorn_pid, "#{Site::CONFIG[:app_dir]}/site/shared/pids/unicorn.pid"
 
 namespace :deploy do
   namespace :assets do
@@ -47,5 +47,6 @@ Cape do
 	mirror_rake_tasks :blog
 end
 
-after 'deploy:restart', 'deploy:assets:precompile', 'deploy:migrate', 'whenever:update_crontab', 'unicorn:duplicate'
+after 'deploy:restart', 'deploy:assets:precompile', 'deploy:migrate', 'whenever:update_crontab'
 after 'deploy:assets:precompile', 'blog:g'
+after 'deploy:restart', 'unicorn:duplicate'
