@@ -1,5 +1,5 @@
 # Set your full path to application.
-app_path = "/data/apps/current"
+app_path = "/data/apps/site/current"
 
 # Set unicorn options
 worker_processes 1
@@ -21,7 +21,7 @@ stderr_path "log/unicorn.log"
 stdout_path "log/unicorn.log"
 
 # Set master PID location
-pid "/data/apps/shared/pids/unicorn.pid"
+pid "/data/apps/site/shared/pids/unicorn.pid"
 
 before_fork do |server, worker|
   ActiveRecord::Base.connection.disconnect!
