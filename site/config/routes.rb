@@ -1,6 +1,6 @@
 Site::Application.routes.draw do
   root to: redirect('/about')
-  get '/about', to: 'high_voltage/pages#show', id: 'landing'
+  get '/about', to: 'high_voltage/pages#show', id: 'about'
 
   get '478', to: 'machine_learning#show'
   get '478/:region', to: 'machine_learning#aggregate_data'
