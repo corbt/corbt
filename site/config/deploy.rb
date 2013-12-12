@@ -30,6 +30,8 @@ set :default_stage, "production"
 
 set :use_sudo, false
 
+set :unicorn_pid, "#{Site::CONFIG[:app_dir]}/shared/pids/unicorn.pid"
+
 namespace :deploy do
   namespace :assets do
     task :precompile, :except => { :no_release => true } do
