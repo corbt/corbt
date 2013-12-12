@@ -8,7 +8,7 @@ html
 		link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic" media="screen" rel="stylesheet"
 		link rel="alternate" type="application/atom+xml" title="{{ site.name }} - Atom" href="{{ site.url }}/atom.xml"
 		link rel="alternate" type="application/rss+xml" title="{{ site.name }} - RSS" href="{{ site.url }}/feed.xml"
-
+		| {% include _analytics.html %}
 
 	body
 		| {% slim _navbar.slim %}

@@ -10,6 +10,10 @@
 		font-size: 16px;
 	}
 
+	#header {
+		margin-bottom: 25px;
+	}
+
 	.date {
 		font-style: italic;
 	}
@@ -20,5 +24,9 @@
 
 	.posts {
 		margin-left: 20px;
+	}
+
+	img {
+		max-width: 100%;
 	}
 }
