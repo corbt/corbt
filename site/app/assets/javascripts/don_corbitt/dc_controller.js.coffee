@@ -34,8 +34,6 @@ if window.angular
 						post.summary = angular.element(post.content).find('p').text()
 						post.expanded = post.corbitt
 					$scope.posts[thread] = posts
-					console.log posts
-					# console.log angular.element(posts[0].content)
 
 		$scope.toggle_post = (post) ->
 			if post.expanded

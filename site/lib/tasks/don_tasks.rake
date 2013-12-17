@@ -16,11 +16,10 @@ namespace :dc do
 				break
 			end
 			list = UsenetList.find_or_create_by_name(thread["list"])
-			list.increment(:num_threads).save
 			thread["usenet_list"] = list
 			posts = thread["posts"]
 			thread.except!("list", "posts")
-
+			thread["title"] = "[No title]" if thread["title"] == nil or thread["title"].size == 0
 			t = UsenetThread.create(thread)
 			posts.each{ |p| UsenetPost.create(p.merge({usenet_thread: t})) }
 		end

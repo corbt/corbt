@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131125003347) do
+ActiveRecord::Schema.define(version: 20131216041324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20131125003347) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "num_threads"
+    t.integer  "threads_count"
   end
 
   create_table "usenet_posts", force: true do |t|
