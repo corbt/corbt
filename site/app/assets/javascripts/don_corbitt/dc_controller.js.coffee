@@ -40,6 +40,7 @@ if window.angular
 				post.expanded = false
 			else
 				post.expanded = true
+			console.log "toggle"
 
 		$scope.lists = lists
 		$scope.threads = {}

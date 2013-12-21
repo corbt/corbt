@@ -3,12 +3,14 @@ require 'json'
 namespace :dc do
 	desc "Import/collate Don Corbitt data"
 	task :import => :environment do
+		puts "Clearing old posts"
 		UsenetList.destroy_all
 		UsenetThread.destroy_all
 		UsenetPost.destroy_all
 
 		file = File.open('/home/kyle/proj/DonCorbittProject/usenet/json/data.json')
-		file.each_line do |thread|
+		file.each_line.with_index do |thread, index|
+			puts "Importing thread #{index}"
 			begin
 				thread = JSON.parse(thread)
 			rescue

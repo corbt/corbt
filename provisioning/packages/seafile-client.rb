@@ -1,3 +1,5 @@
+require 'io/console'
+
 package :seafile_client do 
   requires :sf_client_install, :sf_client_sync
 end
