@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require_tree .
+//= require angular-ui-router 
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
