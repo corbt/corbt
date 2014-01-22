@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    = render partial: "layouts/analytics"
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+
+    title The Corbitt Wedding
+
+  body.wedding
+    nav.navbar.navbar-default.navbar-green role="navigation"
+      .container
+        a.navbar-brand The Corbitt Wedding
+        ul.nav.navbar-nav 
+          .btn-group
+            button.btn.btn-default.selected English
+            button.btn.btn-default Español
+
+    .container.narrow
+      / .title Welcome friends!
+      
+      .welcome
+        markdown:
+          Welcome friends!
+
+          As we prepare for our upcoming life together there's nothing that makes us happier than celebrating it with all of you.  Although many of you are scattered throughout the world (an unfortunate byproduct of our all-to-international courtship and backstory), we hope that as many as possible will find a way to attend one of the three receptions listed below.
+
+          Our international adventures aren't yet over!  After our marriage in Salt Lake City, we'll be moving straight to London, where Karla is currently studying in the PhD program of Queen Mary's University of London.  Since we'll only be there a short time (18 months or so) and shipping across the Atlantic isn't cheap, we've decided to forgo a traditional registry.  Instead, we've put together a simple registry on [Amazon](http://www.amazon.com/registry/wedding/114REP8G6W4OJ).  Beyond the items listed there we would welcome personal checks or gift cards with an expiration date in or after 2016. :) 
+
+          With love,
+          
+          Kyle and Karla
+
+      = image_tag "http://corbt.s3.amazonaws.com/karla_barcelona.jpg"
+
+/ http://img.deseretnews.com/images/article/mcontentimage/496961/496961.jpg
