@@ -1,0 +1,23 @@
+.reception.col-md-4 
+  h3 
+    = title+" "
+    - if defined? rsvp
+      = link_to "(RSVP)", rsvp
+
+  .summary
+    = image_tag image
+    .summary-right
+      .date 
+        h4 Date
+        .content 
+          = date
+      .time 
+        h4 Time
+        .content 
+          = time
+      .location 
+        h4 Location
+        .content
+          = location
+  .description
+    = description

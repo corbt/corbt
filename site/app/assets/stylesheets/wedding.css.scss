@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "bourbon";
+
 .wedding {
   .navbar {
     .btn-group {
@@ -12,6 +14,44 @@
         background-color: #EBEBEB;
         border-color: #ADADAD
       }
+    }
+  }
+
+  h2, h3, h4 {
+    font-family: 'Rosarivo', 'serif';
+  }
+
+  .receptions {
+    border-bottom: 1px solid black;
+  }
+
+  .reception {
+    img {
+      float: left;
+      width: 120px;
+      margin-right: 8px;
+    }
+
+    // h3
+
+
+    .content {
+      margin-left: 7px;
+    }
+
+    .summary {
+      margin-bottom: 15px;
+      @include clearfix;
+    }
+
+    .summary-right {
+      float: left;
+      max-width: 60%;
+    }
+
+    .rsvp {
+      font-family: 'Rosarivo', 'serif';
+      font-size: 1.3em;
     }
   }
 }
