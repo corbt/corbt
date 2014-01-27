@@ -20,4 +20,49 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  date: Date
+  time: Time
+  location: Location
+
+  wedding:
+    title: The Corbitt Wedding
+    letter: |
+              Welcome friends!
+
+              As we prepare for our upcoming life together there's nothing that makes us happier than celebrating it with all of you.  Although many of you are scattered throughout the world (an unfortunate byproduct of our all-to-international courtship and backstory), we hope that as many as possible will find a way to attend one of the three receptions listed below.
+
+              Our international adventures aren't yet over!  After our marriage in Salt Lake City, we'll be moving straight to London, where Karla is currently studying in the PhD program of Queen Mary's University of London.  Since we'll only be there a short time (18 months or so) and shipping across the Atlantic isn't cheap, we've decided to forgo a traditional registry.  Instead, we've put together a simple registry on [Amazon](http://www.amazon.com/registry/wedding/114REP8G6W4OJ).  Beyond the items listed there we would welcome personal checks or gift cards with an expiration date in or after 2016. :)
+
+              With love,
+          
+              Kyle and Karla
+
+    receptions: Receptions
+    rsvp: RSVP
+
+    salt_lake:
+      title: Salt Lake
+      rsvp: https://docs.google.com/forms/d/1S5ze6tpt-QaMj6h3dBVuoBZj6eS_2ylJKY8eBAtB5zg/viewform
+      date: June 21, 2014
+      time: 1pm
+      location: >
+                  Joseph Smith Memorial Building, Empire Room <a href="http://www.templesquarehospitality.com/jsmb/parking.php">(Directions)</a>
+      description: It is our pleasure to invite you to a formal lunch following our sealing in the morning.
+
+    seattle:
+      title: Seattle
+      rsvp: https://docs.google.com/forms/d/1x0XsXKkDIMcIJRWtFT5q2qctTEVWCEmuOlCnGApvG6A/viewform
+      date: June 27, 2014
+      time: 7pm-10pm
+      location: 312 Overlake Dr. East<br>Medina, WA 98039
+
+      description: Please join us for an entertaining evening in a Mediterranean-style villa overlooking Lake Washington.
+
+    barcelona:
+      title: Barcelona
+      # rsvp: fake_link
+      date: October, 2014
+      time: TBD
+      location: TBD
+
+      description: Although we haven't chosen a venue or exact date yet, we hope to see many of you at our reception in Barcelona in the fall.

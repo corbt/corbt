@@ -1,23 +1,26 @@
 .reception.col-md-4 
   h3 
-    = title+" "
-    - if defined? rsvp
-      = link_to "(RSVP)", rsvp
+    = I18n.t("wedding.#{location}.title")+" "
+    - if rsvp
+      = link_to "("+I18n.t("wedding.rsvp")+")", I18n.t("wedding.#{location}.rsvp"), target: "_blank"
 
   .summary
     = image_tag image
     .summary-right
-      .date 
-        h4 Date
+      .date
+        h4.first
+          = I18n.t 'date'
         .content 
-          = date
+          = I18n.t "wedding.#{location}.date"
       .time 
-        h4 Time
+        h4 
+          = I18n.t 'time'
         .content 
-          = time
+          = I18n.t "wedding.#{location}.time"
       .location 
-        h4 Location
+        h4 
+          = I18n.t 'location'
         .content
-          = location
+          = I18n.t("wedding.#{location}.location").html_safe
   .description
-    = description
+    = I18n.t "wedding.#{location}.description"
