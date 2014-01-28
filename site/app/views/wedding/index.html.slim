@@ -22,12 +22,15 @@ html
             a.btn.btn-default class="#{'selected' if I18n.locale == :es}" href="/wedding?locale=es" 
               | Español
 
-    .container.narrow      
-      .welcome
-        - markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
-        = markdown.render(I18n.t 'wedding.letter').html_safe
+    .container
+      .row
+        .col-md-3
+          = image_tag "http://corbt.s3.amazonaws.com/wedding/karla_barcelona.jpg", class: "wedding-us"
 
-      = image_tag "http://corbt.s3.amazonaws.com/wedding/karla_barcelona.jpg"
+        .welcome.col-md-9
+          - markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
+          = markdown.render(I18n.t 'wedding.letter').html_safe
+
 
     .container
       h2.receptions

@@ -5,28 +5,31 @@ es:
 
   wedding:
     title: La boda Corbitt-Inostroza
-    # letter: |
-    #           Welcome friends!
+    letter: |
+      Bienvenidos amigos: 
+
+      Mientras nos preparamos comenzar nuestra vida juntos, no hay nada que nos haría más feliz que celebrarlo con todos ustedes. A pesar de que muchos de vosotros vivís en diferentes partes del planeta (producto de nuestras vidas en el extranjero), esperamos que muchos de ustedes puedan encontrar la manera de atender a una de nuestras recepciones.
 
     #           As we prepare for our upcoming life together there's nothing that makes us happier than celebrating it with all of you.  Although many of you are scattered throughout the world (an unfortunate byproduct of our all-to-international courtship and backstory), we hope that as many as possible will find a way to attend one of the three receptions listed below.
 
     #           Our international adventures aren't yet over!  After our marriage in Salt Lake City, we'll be moving straight to London, where Karla is currently studying in the PhD program of Queen Mary's University of London.  Since we'll only be there a short time (18 months or so) and shipping across the Atlantic isn't cheap, we've decided to forgo a traditional registry.  Instead, we've put together a simple registry on [Amazon](http://www.amazon.com/registry/wedding/114REP8G6W4OJ).  Beyond the items listed there we would welcome personal checks or gift cards with an expiration date in or after 2016. :)
 
     #           With love,
-          
+
     #           Kyle and Karla
 
-    # receptions: Receptions
-    rsvp: SRC
+    receptions: Recepciones
+    rsvp: confirmar asistencia
 
     salt_lake:
-      title: Salt Lake City
+      title: Salt Lake
       rsvp: https://docs.google.com/forms/d/1pvnilfcFHjkZnRI4gdb8eaeuY4Im8WByzTGkIeETq8o/viewform
       date: 21 de junio del 2014
-      time: 13h
-      # location: >
-      #             Joseph Smith Memorial Building, Empire Room <a href="http://www.templesquarehospitality.com/jsmb/parking.php">(Directions)</a>
-      # description: It is our pleasure to invite you to a formal lunch following our sealing in the morning.
+      time: 13h-16h
+      location: >
+        Joseph Smith Memorial Building, Empire Room <a href="http://www.templesquarehospitality.com/jsmb/parking.php">(cómo llegar)</a>
+      
+      description: Es un placer invitarle a un almuerzo formal después de la ceremonia de Sellamiento en el Templo.
 
     seattle:
       title: Seattle
@@ -35,13 +38,13 @@ es:
       time: 19h-22h
       location: 312 Overlake Dr. Este<br>Medina, WA 98039
 
-      # description: Please join us for an entertaining evening in a Mediterranean-style villa overlooking Lake Washington.
+      description: Sería un placer que nos acompañaran durante esta tarde en una hermosa casa de estilo mediterráneo a orillas del Lago Washington.
 
     barcelona:
       title: Barcelona
       rsvp: fake_link
-      date: Octubre del 2014
-      # time: TBD
-      # location: TBD
+      date: 10 de octubre del 2014
+      time: por determinar
+      location: por determinar
 
-      # description: Although we haven't chosen a venue or exact date yet, we hope to see many of you at our reception in Barcelona in the fall.
+      description: Aunque aún no hemos decidido un lugar exacto, esperamos ver a muchos de ustedes en nuestra recepción en otoño.
