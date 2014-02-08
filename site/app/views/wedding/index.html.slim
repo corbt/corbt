@@ -5,6 +5,7 @@ html
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic|Rosarivo"
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"
     = csrf_meta_tags
 
     title
@@ -23,13 +24,18 @@ html
               | Español
 
     .container
+      - if I18n.locale == :en
+        .alert.alert-danger
+          button.close type="button" data-dismiss="alert" aria-hidden="true"&times;
+
+          markdown:
+            **Important**: If you're planning on coming to the Utah reception, please RSVP no later than April 2nd. The venue needs as firm a count as possible.
       .row
         .col-md-3
           = image_tag "http://corbt.s3.amazonaws.com/wedding/karla_barcelona.jpg", class: "wedding-us"
 
         .welcome.col-md-9
-          - markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
-          = markdown.render(I18n.t 'wedding.letter').html_safe
+          = MdRenderer.render(I18n.t 'wedding.letter').html_safe
 
 
     .container
