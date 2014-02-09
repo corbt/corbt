@@ -5,6 +5,7 @@ html
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic|Rosarivo"
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
     = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"
     = csrf_meta_tags
 
@@ -29,7 +30,7 @@ html
           button.close type="button" data-dismiss="alert" aria-hidden="true"&times;
 
           markdown:
-            **Important**: If you're planning on coming to the Utah reception, please RSVP no later than April 2nd. The venue needs as firm a count as possible.
+            **Important**: If you're planning on coming to the Utah reception, please RSVP no later than April 2nd. The venue has requested as firm a count as possible.
       .row
         .col-md-3
           = image_tag "http://corbt.s3.amazonaws.com/wedding/karla_barcelona.jpg", class: "wedding-us"
