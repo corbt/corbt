@@ -4,9 +4,7 @@ Site::Application.routes.draw do
   get '/wedding', to: 'wedding#show'
   get '/boda', to: redirect('/wedding?locale=es')
 
-
-  get '478', to: 'machine_learning#show'
-  get '478/:region', to: 'machine_learning#aggregate_data'
+  post '/catan/update', to: 'catan#update'
 
   scope '/don' do
     get '', to: redirect('/don/about')
