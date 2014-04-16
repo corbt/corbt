@@ -2,7 +2,7 @@
   h3 
     = I18n.t("wedding.#{location}.title")+" "
     - if rsvp
-      = link_to "("+I18n.t("wedding.rsvp")+")", I18n.t("wedding.#{location}.rsvp"), target: "_blank"
+      = link_to "("+I18n.t("wedding.rsvp")+")", I18n.t("wedding.#{location}.rsvp"), target: "_blank", class: "#{'small-link' if I18n.locale == :es}"
 
   .summary
     = image_tag image
