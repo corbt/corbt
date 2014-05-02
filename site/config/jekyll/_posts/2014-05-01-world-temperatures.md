@@ -4,7 +4,7 @@ published: true
 title: World Temperatures
 description: Although there are many of the culture and lifestyle in those areas that are hard to compare directly, climate is an easy one. This interactive map contains data points from over 2700 meteorological stations worldwide.
 ---
-I've lived in Barcelona, Seattle and Utah, and will be moving to the UK soon. Although there are many of the culture and lifestyle in those areas that are hard to compare directly, climate is an easy one.
+I've lived in Barcelona, Seattle and Utah, and will be moving to the UK soon. Although many aspects of the culture and lifestyle in those areas are hard to compare directly, climate is an easy one.
 
 This interactive map contains data points from over 2700 meteorological stations worldwide. The data was collated by the US National Oceanic and Atmospheric Administration (NOAA), which provides a number of interesting data sets.
 
