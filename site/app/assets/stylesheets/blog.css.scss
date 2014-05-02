@@ -4,6 +4,10 @@
 		margin-right: 35px;
 		padding-right: 0;
 		border-right: 1px solid #ddd;
+
+		p {
+			margin: 10px;
+		}
 	}
 
 	.main {
@@ -26,6 +30,10 @@
 		margin-left: 20px;
 	}
 
+	.title {
+		margin-bottom: 0;
+	}
+
 	img {
 		max-width: 100%;
 	}
@@ -44,6 +52,6 @@
 	}
 
 	p {
-		margin-bottom: 30px;
+		margin-bottom: 20px;
 	}
 }
