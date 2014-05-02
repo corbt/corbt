@@ -2,6 +2,7 @@
 layout: post
 published: true
 title: Introducing Pypeline DB
+description: Pypeline DB is a new Python package that makes it easy to import, explore, transform and export data sets.
 ---
 [Pypeline DB](http://pypeline.readthedocs.org/en/latest/index.html) is a new Python package that makes it easy to import, explore, transform and export data sets.  All data is stored on disk, making it especially appropriate for data too large to fit in RAM or data that you'd like to keep persistent between sessions.
 
