@@ -23,7 +23,7 @@ es:
 
     salt_lake:
       title: Salt Lake
-      rsvp: https://docs.google.com/forms/d/1pvnilfcFHjkZnRI4gdb8eaeuY4Im8WByzTGkIeETq8o/viewform
+      # rsvp: https://docs.google.com/forms/d/1pvnilfcFHjkZnRI4gdb8eaeuY4Im8WByzTGkIeETq8o/viewform
       date: 21 de junio del 2014
       time: 13h-16h
       location: >
@@ -33,7 +33,7 @@ es:
 
     seattle:
       title: Seattle
-      rsvp: https://docs.google.com/forms/d/1_DySWkFhszY5-eZ3wKAzaUeatddNbd1hZBwzmlJ-dvU/viewform
+      # rsvp: https://docs.google.com/forms/d/1_DySWkFhszY5-eZ3wKAzaUeatddNbd1hZBwzmlJ-dvU/viewform
       date: 27 de junio del 2014
       time: 19h-22h
       location: 312 Overlake Dr. Este<br>Medina, WA 98039
@@ -42,7 +42,6 @@ es:
 
     barcelona:
       title: Barcelona
-      rsvp: fake_link
       date: 11 de octubre del 2014
       time: por determinar
       location: por determinar

@@ -56,11 +56,11 @@ en:
       time: 7pm-10pm
       location: 312 Overlake Dr. East<br>Medina, WA 98039<br><i>Park at the adjacent <a href="https://www.google.com/maps/place/841+Lake+Washington+Blvd+NE/@47.617907,-122.221851,17z/data=!4m2!3m1!1s0x54906c9d7b1f7245:0x462ae227c37ef500">church</a>, a shuttle will be provided.</i>
 
-      description: Please join us for an entertaining evening in a Mediterranean-style villa overlooking Lake Washington.
+      description: Please join us for an entertaining evening in a Mediterranean-style villa overlooking Lake Washington. Families welcome (there will be a movie room for the kids). 
 
     barcelona:
       title: Barcelona
-      # rsvp: fake_link
+      rsvp: https://docs.google.com/forms/d/1_DySWkFhszY5-eZ3wKAzaUeatddNbd1hZBwzmlJ-dvU/viewform
       date: October 11, 2014
       time: TBD
       location: TBD
