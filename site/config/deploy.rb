@@ -48,5 +48,4 @@ Cape do
 end
 
 after 'deploy:restart', 'deploy:assets:precompile', 'deploy:migrate', 'whenever:update_crontab'
-after 'deploy:assets:precompile', 'blog:g'
 after 'deploy:restart', 'unicorn:stop', 'unicorn:start'

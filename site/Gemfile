@@ -14,9 +14,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Blog
-gem 'bloggy', :github => 'jesseadams/bloggy', :branch => 'fix-rake-generate'
+# gem 'bloggy', :github => 'jesseadams/bloggy', :branch => 'fix-rake-generate'
 # gem 'bloggy'
-gem 'jekyll-slim'
+# gem 'jekyll-slim'
 
 # Performance
 gem 'actionpack-page_caching'

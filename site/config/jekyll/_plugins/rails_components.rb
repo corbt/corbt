@@ -1,1 +1,0 @@
-FileUtils.cp('../../app/views/layouts/_navbar.slim', './_includes')
