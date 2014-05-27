@@ -1,14 +1,3 @@
-GIT
-  remote: git://github.com/jesseadams/bloggy.git
-  revision: ed0a3f7365dd6a4ab62e0366ff7d4d97dc26f3d4
-  branch: fix-rake-generate
-  specs:
-    bloggy (0.2.1)
-      jekyll (~> 1.1.2)
-      rack-contrib
-      rails
-      rdiscount
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -60,8 +49,6 @@ GEM
     capistrano-unicorn (0.2.0)
       capistrano (< 3.0)
     chronic (0.10.2)
-    classifier (1.3.3)
-      fast-stemmer (>= 1.0.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -69,43 +56,21 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    colorator (0.1)
-    commander (4.1.5)
-      highline (~> 1.6.11)
-    directory_watcher (1.4.1)
     erubis (2.7.0)
     execjs (2.0.2)
-    fast-stemmer (1.0.2)
     high_voltage (2.0.0)
     highline (1.6.20)
     hike (1.2.3)
     http_accept_language (2.0.1)
     i18n (0.6.9)
-    jekyll (1.1.2)
-      classifier (~> 1.3)
-      colorator (~> 0.1)
-      commander (~> 4.1.3)
-      directory_watcher (~> 1.4.1)
-      kramdown (~> 1.0.2)
-      liquid (~> 2.5.1)
-      maruku (~> 0.5)
-      pygments.rb (~> 0.5.0)
-      redcarpet (~> 2.2.2)
-      safe_yaml (~> 0.7.0)
-    jekyll-slim (0.8.2)
-      jekyll (>= 0.10.0)
-      slim
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     kgio (2.8.1)
-    kramdown (1.0.2)
-    liquid (2.5.4)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    maruku (0.7.0)
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.4)
@@ -118,13 +83,7 @@ GEM
       net-ssh (>= 2.6.5)
     pg (0.17.0)
     polyglot (0.3.4)
-    posix-spawn (0.3.8)
-    pygments.rb (0.5.4)
-      posix-spawn (~> 0.3.6)
-      yajl-ruby (~> 1.1.0)
     rack (1.5.2)
-    rack-contrib (1.1.0)
-      rack (>= 0.9.1)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.3)
@@ -142,9 +101,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.12.0)
     rake (10.1.1)
-    rdiscount (2.1.7)
     redcarpet (2.2.2)
-    safe_yaml (0.7.1)
     sass (3.2.12)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -183,14 +140,12 @@ GEM
     whenever (0.8.4)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
-    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   actionpack-page_caching
-  bloggy!
   bootstrap-sass
   bourbon
   cape
@@ -201,7 +156,6 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   high_voltage
   http_accept_language
-  jekyll-slim
   jquery-rails
   pg
   rails (= 4.0.3)

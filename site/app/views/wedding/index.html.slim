@@ -3,7 +3,7 @@ html
   head
     = render partial: "layouts/analytics"
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic|Rosarivo"
+    = stylesheet_link_tag "//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic|Rosarivo"
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
     = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"
@@ -33,7 +33,7 @@ html
             **Important**: Because of time constraints, we will only be having a luncheon in Utah instead of a reception (we wish we could have both and be able to see more of you!). If you're planning on coming, please RSVP as soon as possible so that we can give a count to the venue. Thanks!
       .row
         .col-md-3
-          = image_tag "http://corbt.s3.amazonaws.com/wedding/karla_barcelona.jpg", class: "wedding-us"
+          = image_tag "//corbt.s3.amazonaws.com/wedding/karla_barcelona.jpg", class: "wedding-us"
 
         .welcome.col-md-9
           = MdRenderer.render(I18n.t 'wedding.letter').html_safe
@@ -44,16 +44,16 @@ html
         = I18n.t 'wedding.receptions'
       .row
         = render "reception",
-          image: "http://corbt.s3.amazonaws.com/wedding/salt_lake.jpg",
+          image: "//corbt.s3.amazonaws.com/wedding/salt_lake.jpg",
           location: "salt_lake",
           rsvp: true
 
         = render "reception",
-          image: "http://corbt.s3.amazonaws.com/wedding/seattle.jpg",
+          image: "//corbt.s3.amazonaws.com/wedding/seattle.jpg",
           location: "seattle",
           rsvp: true
 
         = render "reception",
-          image: "http://corbt.s3.amazonaws.com/wedding/barcelona.jpg",
+          image: "//corbt.s3.amazonaws.com/wedding/barcelona.jpg",
           location: "barcelona",
           rsvp: true
